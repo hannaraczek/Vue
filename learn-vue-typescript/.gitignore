@@ -30,9 +30,11 @@ yarn-error.log*
 
 .idea/**/workspace.xml
 .idea/**/tasks.xml
+.idea/**/watcherTasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/**/scopes
 
 # Generated files
 .idea/**/contentModel.xml

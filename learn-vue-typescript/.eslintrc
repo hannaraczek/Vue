@@ -5,6 +5,7 @@
   },
   "extends": [
     "plugin:vue/strongly-recommended",
+    "plugin:prettier/recommended",
     "eslint:recommended",
     "@vue/typescript/recommended",
     "@vue/prettier",
@@ -12,5 +13,33 @@
   ],
   "parserOptions": {
     "ecmaVersion": 2020
+  },
+  "rules": {
+    "vue/order-in-components": "warn",
+    "vue/array-bracket-spacing": "error",
+    "vue/arrow-spacing": "error",
+    "vue/block-spacing": "error",
+    "vue/brace-style": "error",
+    "vue/camelcase": "error",
+    "vue/comma-dangle": "error",
+    "vue/component-definition-name-casing": "error",
+    "vue/component-name-in-template-casing": "error",
+    "vue/eqeqeq": "error",
+    "vue/key-spacing": "error",
+    "vue/keyword-spacing": "error",
+    "vue/no-irregular-whitespace": "error",
+    "vue/no-reserved-component-names": "error",
+    "vue/no-static-inline-styles": "warn",
+    "vue/no-unsupported-features": "error",
+    "vue/object-curly-spacing": "error",
+    "vue/padding-line-between-blocks": "error",
+    "vue/script-indent": "error",
+    "vue/space-infix-ops": "error",
+    "vue/space-unary-ops": "error",
+    "vue/v-on-function-call": "error",
+    "vue/no-confusing-v-for-v-if": "error",
+    "vue/no-deprecated-scope-attribute": "error",
+    "vue/no-deprecated-slot-attribute": "error",
+    "vue/no-deprecated-slot-scope-attribute": "error"
   }
 }
