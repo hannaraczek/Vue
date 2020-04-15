@@ -32,6 +32,7 @@ yarn-error.log*
 .idea/**/tasks.xml
 .idea/**/watcherTasks.xml
 .idea/**/usage.statistics.xml
+.idea/**/terminal.xml
 .idea/**/dictionaries
 .idea/**/shelf
 .idea/**/scopes
