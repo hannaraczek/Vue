@@ -4,7 +4,7 @@
     "node": true
   },
   "extends": [
-    "plugin:vue/essential",
+    "plugin:vue/strongly-recommended",
     "eslint:recommended",
     "@vue/typescript/recommended",
     "@vue/prettier",
@@ -12,6 +12,5 @@
   ],
   "parserOptions": {
     "ecmaVersion": 2020
-  },
-  "rules": {}
+  }
 }
