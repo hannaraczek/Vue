@@ -7,7 +7,7 @@
     "plugin:vue/strongly-recommended",
     "plugin:prettier/recommended",
     "eslint:recommended",
-    "@vue/typescript/recommended",
+    "@vue/typescript",
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint"
   ],
@@ -15,6 +15,7 @@
     "ecmaVersion": 2020
   },
   "rules": {
+    "object-curly-spacing": ["error", "always", { "objectsInObjects": false }],
     "vue/order-in-components": "warn",
     "vue/array-bracket-spacing": "error",
     "vue/arrow-spacing": "error",
