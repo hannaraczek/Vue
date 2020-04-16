@@ -17,15 +17,15 @@ const requireComponent = require.context(
 )
 
 requireComponent.keys().forEach(fileName => {
-  const componentConfig = requireComponent(fileName);
+  const componentConfig = requireComponent(fileName)
 
   // Get PascalCase name of component
-  const componentName = upperFirst(camelCase(
-    fileName
-    .split('/')
-    .pop()
-    .replace(/\.\w+$/, '')
-  ));
+  const componentName = upperFirst(
+    camelCase(fileName
+      .split('/')
+      .pop()
+      .replace(/\.\w+$/, '')
+    ))
 
   // Register component globally
   Vue.component(
