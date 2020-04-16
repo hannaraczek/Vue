@@ -11,10 +11,11 @@
   import ExerciseDetailComponent from '@/components/ExerciseDetailComponent.vue';
 
   export default Vue.extend({
+    // eventually there should be an api call made to fetch this info
     props: {
       workout: {
         type: Object as () => WorkoutRecord,
-        default: null
+        default: {}
       }
     },
 
