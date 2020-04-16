@@ -9,29 +9,29 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue";
-    import { WorkoutRecord } from '@/data/WorkoutRecord.interface';
+import Vue from 'vue'
+import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
 
-    export default Vue.extend({
-      name: "WorkoutRecord",
-      props: {
-        workout: {
-          type: Object as () => WorkoutRecord,
-          default: null
-        }
-      },
+export default Vue.extend({
+  name: 'WorkoutRecord',
+  props: {
+    workout: {
+      type: Object as () => WorkoutRecord,
+      default: null
+    }
+  },
 
-      methods: {
-        getDescription(type: string) {
-          const exerciseRecord = this.workout.exercises.find(e => e.type === type);
-          if (!exerciseRecord) {
-              return;
-          }
-
-          return exerciseRecord.tapOutNumber ? `${exerciseRecord.tapOutNumber} tapouts. First one was at ${exerciseRecord.firstTapOutTime}. No biggie!` : 'No tapouts! Excellent work!';
-        }
+  methods: {
+    getDescription (type: string) {
+      const exerciseRecord = this.workout.exercises.find(e => e.type === type)
+      if (!exerciseRecord) {
+        return
       }
-    });
+
+      return exerciseRecord.tapOutNumber ? `${exerciseRecord.tapOutNumber} tapouts. First one was at ${exerciseRecord.firstTapOutTime}. No biggie!` : 'No tapouts! Excellent work!'
+    }
+  }
+})
 </script>
 
 <style scoped></style>

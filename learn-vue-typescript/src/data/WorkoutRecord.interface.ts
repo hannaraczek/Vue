@@ -1,16 +1,16 @@
 export interface WorkoutRecord {
-    day: Number,
-    exercises: ExerciseRecord[]
+  day: number;
+  exercises: ExerciseRecord[];
 }
 
-export interface ExerciseRecord  {
-    type: ExerciseType,
-    firstTapOutTime: Number,
-    tapOutNumber: Number,
-    notes: String
+export interface ExerciseRecord {
+  type: ExerciseType;
+  firstTapOutTime: number;
+  tapOutNumber: number;
+  notes: string;
 }
 
 export enum ExerciseType {
-    ARM = 'arm',
-    LEG = 'leg'
+  ARM = 'arm',
+  LEG = 'leg',
 }

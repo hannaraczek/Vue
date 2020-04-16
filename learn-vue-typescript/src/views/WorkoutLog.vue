@@ -6,37 +6,37 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import WorkoutRecordComponent from '@/components/WorkoutSummaryComponent.vue';
-  import { ExerciseType } from '@/data/WorkoutRecord.interface';
+import Vue from 'vue'
+import WorkoutRecordComponent from '@/components/WorkoutSummaryComponent.vue'
+import { ExerciseType } from '@/data/WorkoutRecord.interface'
 
-  export default Vue.extend({
-    name: "WorkoutLog",
-    components: {
-      WorkoutRecordComponent
-    },
-    data() {
-      return {
-        workouts: [
-          {
-            day: 1,
-            exercises: [
-              {
-                type: ExerciseType.ARM,
-                firstTapOutTime: 1.02,
-                tapOutNumber: 5,
-                notes: 'It was really hard this time around :('
-              },
-              {
-                type: ExerciseType.LEG,
-                firstTapOutTime: undefined,
-                tapOutNumber: 0,
-                notes: "It felt really good this time!"
-              }
-            ]
-          }
-        ]
-      }
+export default Vue.extend({
+  name: 'WorkoutLog',
+  components: {
+    WorkoutRecordComponent
+  },
+  data () {
+    return {
+      workouts: [
+        {
+          day: 1,
+          exercises: [
+            {
+              type: ExerciseType.ARM,
+              firstTapOutTime: 1.02,
+              tapOutNumber: 5,
+              notes: 'It was really hard this time around :('
+            },
+            {
+              type: ExerciseType.LEG,
+              firstTapOutTime: undefined,
+              tapOutNumber: 0,
+              notes: 'It felt really good this time!'
+            }
+          ]
+        }
+      ]
     }
-  });
+  }
+})
 </script>

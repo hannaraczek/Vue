@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import VueRouter, { RouteConfig } from 'vue-router';
-import ExerciseLog from '../views/WorkoutLog.vue';
+import Vue from 'vue'
+import VueRouter, { RouteConfig } from 'vue-router'
+import ExerciseLog from '../views/WorkoutLog.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
@@ -29,11 +29,11 @@ const routes: Array<RouteConfig> = [
     name: 'Not Found',
     component: () => import('../views/NotFound.vue')
   }
-];
+]
 
 const router = new VueRouter({
   mode: 'history',
   routes
-});
+})
 
-export default router;
+export default router

@@ -9,17 +9,17 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue";
-    import { ExerciseRecord } from '@/data/WorkoutRecord.interface';
+import Vue from 'vue'
+import { ExerciseRecord } from '@/data/WorkoutRecord.interface'
 
-    export default Vue.extend({
-        props: {
-            exercise: {
-                type: Object as () => ExerciseRecord,
-                default: null
-            }
-        }
-    });
+export default Vue.extend({
+  props: {
+    exercise: {
+      type: Object as () => ExerciseRecord,
+      default: null
+    }
+  }
+})
 </script>
 
 <style scoped>

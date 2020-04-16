@@ -6,21 +6,20 @@
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
-  import { WorkoutRecord } from '@/data/WorkoutRecord.interface';
-  import ExerciseDetailComponent from '@/components/ExerciseDetailComponent.vue';
+import Vue from 'vue'
+import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
+import ExerciseDetailComponent from '@/components/ExerciseDetailComponent.vue'
 
-  export default Vue.extend({
-    // eventually there should be an api call made to fetch this info
-    props: {
-      workout: {
-        type: Object as () => WorkoutRecord,
-        default: {}
-      }
-    },
-
-    components: {
-      ExerciseDetailComponent
+export default Vue.extend({
+  // eventually there should be an api call made to fetch this info
+  props: {
+    workout: {
+      type: Object as () => WorkoutRecord,
+      default: {}
     }
-  });
+  },
+  components: {
+    ExerciseDetailComponent
+  }
+})
 </script>
