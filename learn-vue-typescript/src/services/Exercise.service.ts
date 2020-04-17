@@ -1,0 +1,10 @@
+import { Api } from '@/services/Api.service'
+import { Exercise } from '@/data/WorkoutRecord.interface'
+import { exercisesUrl } from '@/services/Constants'
+
+export class ExerciseService extends Api {
+  getExercise(id: string): Promise<Exercise> {
+    return this.get<Exercise>(`${exercisesUrl}/${id}`)
+      .then(resp => resp.data)
+  }
+}

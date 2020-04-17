@@ -10,9 +10,6 @@
 import Vue from 'vue'
 import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
 import ExerciseDetailComponent from '@/components/ExerciseDetailComponent.vue'
-import { WorkoutService } from '@/services/Workout.service'
-
-const workoutService: WorkoutService = new WorkoutService()
 
 export default Vue.extend({
   components: {
@@ -26,13 +23,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      workout: {} as WorkoutRecord
+      workout: this.$store.getters.getWorkoutById(this.id) as WorkoutRecord
     }
-  },
-  created(): void {
-    workoutService.getEvent(this.id)
-      .then(resp => { this.workout = resp })
-      .catch(err => console.log(err))
   }
 })
 </script>

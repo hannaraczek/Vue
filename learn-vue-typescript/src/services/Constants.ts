@@ -1,2 +1,3 @@
-export const baseURL = 'http://localhost:3000'
-export const workoutsURL = baseURL + '/workouts'
+export const baseUrl = 'http://localhost:3000'
+export const exercisesUrl = baseUrl + '/exercises'
+export const usersUrl = baseUrl + '/users'

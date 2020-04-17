@@ -1,12 +1,12 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { baseURL } from './Constants'
+import { baseUrl } from './Constants'
 
 export class Api {
   private api: AxiosInstance;
 
   constructor() {
     this.api = axios.create({
-      baseURL: baseURL,
+      baseURL: baseUrl,
       withCredentials: false,
       headers: {
         Accept: 'application/json',
