@@ -7,6 +7,8 @@ export class UserSerivce extends Api {
     return this.get<User>(`${usersUrl}/${id}`)
       .then(resp => resp.data)
   }
+
+  // TODO create a PATCH to patch a new workout
 }
 
 export interface User {

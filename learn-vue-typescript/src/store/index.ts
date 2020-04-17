@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { Exercise, ExerciseArea } from '@/data/WorkoutRecord.interface'
+import { Exercise, WorkoutRecord } from '@/data/WorkoutRecord.interface'
 import { User, UserSerivce } from '@/services/User.service'
 import { ExerciseService } from '@/services/Exercise.service'
 
 Vue.use(Vuex)
+const userService = new UserSerivce()
 
 export default new Vuex.Store({
   state: {
@@ -13,7 +14,6 @@ export default new Vuex.Store({
     availableExercises: [] as Exercise[]
   },
 
-  // synchronus
   mutations: {
     PUSH_EXERCISE_ID(state, id) {
       state.selectedExerciseIds.push(id)
@@ -23,10 +23,13 @@ export default new Vuex.Store({
     },
     UPDATE_AVAILABLE_EXERCISES(state, exercises: Exercise[]) {
       state.availableExercises = exercises
+    },
+    ADD_WORKOUT_RECORD(state, workout: WorkoutRecord) {
+      state.user.workouts.push(workout)
     }
   },
 
-  // asynchronus
+  // async
   actions: {
     addExercise({ state, commit }, exerciseId) {
       if (state.user) {
@@ -34,12 +37,16 @@ export default new Vuex.Store({
       }
     },
     setUser({ commit }, id) {
-      const userService = new UserSerivce()
-      userService.getUser(id).then(user => commit('UPDATE_USER', user))
+      // returning these calls then allows the disptcher to listen, too, to do things like display errors
+      return userService.getUser(id).then(user => commit('UPDATE_USER', user))
     },
     setAvailableExercises({ commit }) {
       const exerciseService: ExerciseService = new ExerciseService()
-      exerciseService.getExercises().then(exercises => commit('UPDATE_AVAILABLE_EXERCISES', exercises))
+      return exerciseService.getExercises().then(exercises => commit('UPDATE_AVAILABLE_EXERCISES', exercises))
+    },
+    createWorkoutRecord({ commit }, workout: WorkoutRecord) {
+      // TODO patch the workout, .then
+      commit('ADD_WORKOUT_RECORD', workout)
     }
   },
   getters: {

@@ -13,10 +13,14 @@
 import Vue from 'vue'
 import { mapState, mapGetters } from 'vuex'
 
+// TODO create a workout record in a record create method and then call this.$store.dispatch('createWorkoutRecord', workoutRecord)
 export default Vue.extend({
   data() {
     // fyi, you can fill data here before returning it, like having a constant array that you fill with initial data before returning it.
     // it's just a function, after all.
+
+    // probably create an empty workout record object here and bind inputs when you use them.
+    // Then when you create the object, it's already there and ready to send off.
     return {
       selectedExerciseId: undefined
     }
