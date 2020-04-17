@@ -38,11 +38,11 @@ export default new Vuex.Store({
     },
     setUser({ commit }, id) {
       // returning these calls then allows the disptcher to listen, too, to do things like display errors
-      return userService.getUser(id).then(user => commit('UPDATE_USER', user))
+      return userService.getUser(id).then(resp => commit('UPDATE_USER', resp.data))
     },
     setAvailableExercises({ commit }) {
       const exerciseService: ExerciseService = new ExerciseService()
-      return exerciseService.getExercises().then(exercises => commit('UPDATE_AVAILABLE_EXERCISES', exercises))
+      return exerciseService.getExercises().then(resp => commit('UPDATE_AVAILABLE_EXERCISES', resp.data))
     },
     createWorkoutRecord({ commit }, workout: WorkoutRecord) {
       // TODO patch the workout, .then

@@ -1,15 +1,14 @@
 import { Api } from '@/services/Api.service'
 import { Exercise } from '@/data/WorkoutRecord.interface'
 import { exercisesUrl } from '@/services/Constants'
+import { AxiosResponse } from 'axios'
 
 export class ExerciseService extends Api {
-  getExercises(): Promise<Exercise[]> {
+  getExercises(): Promise<AxiosResponse<Exercise[]>> {
     return this.get<Exercise[]>(`${exercisesUrl}`)
-      .then(resp => resp.data)
   }
 
-  getExercise(id: string): Promise<Exercise> {
+  getExercise(id: string): Promise<AxiosResponse<Exercise>> {
     return this.get<Exercise>(`${exercisesUrl}/${id}`)
-      .then(resp => resp.data)
   }
 }
