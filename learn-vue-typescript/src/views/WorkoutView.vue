@@ -10,16 +10,29 @@
 import Vue from 'vue'
 import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
 import ExerciseDetailComponent from '@/components/ExerciseDetailComponent.vue'
+import { WorkoutService } from '@/services/Workout.service'
+
+const workoutService: WorkoutService = new WorkoutService()
 
 export default Vue.extend({
-  // eventually there should be an api call made to fetch this info
-  props: {
-    workout: {
-      type: Object as () => WorkoutRecord
-    }
-  },
   components: {
     ExerciseDetailComponent
+  },
+  props: {
+    id: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      workout: {} as WorkoutRecord
+    }
+  },
+  created(): void {
+    workoutService.getEvent(this.id)
+      .then(resp => { this.workout = resp })
+      .catch(err => console.log(err))
   }
-});
+})
 </script>

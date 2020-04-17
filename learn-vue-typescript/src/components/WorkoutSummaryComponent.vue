@@ -1,6 +1,6 @@
 <template>
     <div>
-      <router-link :to="{ name: 'View Log', params: { id: `day${workout.day}`, workout: workout }}">
+      <router-link :to="{ name: 'View Log', params: { id: workout.id }}">
         <h1>Day {{ workout.day }}</h1>
       </router-link>
       <h2>Arms: {{ getDescription('arm') }}</h2>

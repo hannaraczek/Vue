@@ -1,4 +1,5 @@
 export interface WorkoutRecord {
+  id: string;
   day: number;
   exercises: ExerciseRecord[];
 }
