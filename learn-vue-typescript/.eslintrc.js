@@ -14,7 +14,8 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
-    'vue/valid-v-for': 'off'
+    'vue/valid-v-for': 'off',
+    'space-before-function-paren': ['error', 'never']
   }
 }
 

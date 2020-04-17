@@ -22,7 +22,7 @@ export default Vue.extend({
   },
 
   methods: {
-    getDescription (type: string) {
+    getDescription(type: string) {
       const exerciseRecord = this.workout.exercises.find(e => e.type === type)
       if (!exerciseRecord) {
         return

@@ -1,0 +1,38 @@
+{
+  "workouts":[
+    {
+      "day": 1,
+      "exercises": [
+        {
+          "type": "arm",
+          "firstTapOutTime": 1.02,
+          "tapOutNumber": 5,
+          "notes": "It was really hard this time around :("
+        },
+        {
+          "type": "leg",
+          "firstTapOutTime": null,
+          "tapOutNumber": 0,
+          "notes": "It felt really good this time!"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "exercises": [
+        {
+          "type": "arm",
+          "firstTapOutTime": 1.00,
+          "tapOutNumber": 5,
+          "notes": "Getting better?"
+        },
+        {
+          "type": "leg",
+          "firstTapOutTime": null,
+          "tapOutNumber": 0,
+          "notes": "Today was harder..."
+        }
+      ]
+    }
+  ]
+}

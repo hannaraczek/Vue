@@ -8,34 +8,23 @@
 <script lang="ts">
 import Vue from 'vue'
 import WorkoutRecordComponent from '@/components/WorkoutSummaryComponent.vue'
-import { ExerciseType } from '@/data/WorkoutRecord.interface'
+import { WorkoutService } from '@/services/Workout.service'
+import { WorkoutRecord } from '@/data/WorkoutRecord.interface';
 
+const workoutService: WorkoutService = new WorkoutService()
 export default Vue.extend({
   name: 'WorkoutLog',
+  created(): void {
+    workoutService.getEvents()
+      .then(data => { this.workouts = data })
+      .catch(err => console.log('error!', err))
+  },
   components: {
     WorkoutRecordComponent
   },
-  data () {
+  data() {
     return {
-      workouts: [
-        {
-          day: 1,
-          exercises: [
-            {
-              type: ExerciseType.ARM,
-              firstTapOutTime: 1.02,
-              tapOutNumber: 5,
-              notes: 'It was really hard this time around :('
-            },
-            {
-              type: ExerciseType.LEG,
-              firstTapOutTime: undefined,
-              tapOutNumber: 0,
-              notes: 'It felt really good this time!'
-            }
-          ]
-        }
-      ]
+      workouts: [] as WorkoutRecord[]
     }
   }
 })

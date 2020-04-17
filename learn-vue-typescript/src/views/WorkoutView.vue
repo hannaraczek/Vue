@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div v-if="workout">
     <h1>Viewing log entry for day {{ workout.day }}!</h1>
     <ExerciseDetailComponent v-for="exercise in workout.exercises" :exercise="exercise"></ExerciseDetailComponent>
+    <BaseIconComponent></BaseIconComponent>
   </div>
 </template>
 
@@ -14,12 +15,11 @@ export default Vue.extend({
   // eventually there should be an api call made to fetch this info
   props: {
     workout: {
-      type: Object as () => WorkoutRecord,
-      default: {}
+      type: Object as () => WorkoutRecord
     }
   },
   components: {
     ExerciseDetailComponent
   }
-})
+});
 </script>

@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="Project" pattern="file[Vue]:*/src//*||file:*/package.json||file:*/tsconfig.json" />
+  <scope name="Project" pattern="(file[Vue]:*/src//*||file:*/package.json||file:*/tsconfig.json)&amp;&amp;!file:learn-vue-typescript/package.json&amp;&amp;!file:learn-vue-typescript/tsconfig.json||file[Vue]:learn-vue-typescript//*" />
 </component>
