@@ -1,17 +1,27 @@
 {
-  "workouts":[
+  "workouts": [
     {
       "id": "hfjewnaknvfea",
       "day": 1,
       "exercises": [
         {
-          "type": "arm",
+          "exercise": {
+            "id": "arm1",
+            "type": "arm",
+            "videoUrl": "https://www.youtube.com/watch?v=UyTR2EjTAXU",
+            "exerciseLength": "7:00"
+          },
           "firstTapOutTime": 1.02,
           "tapOutNumber": 5,
           "notes": "It was really hard this time around :("
         },
         {
-          "type": "leg",
+          "exercise": {
+            "id": "leg1",
+            "type": "leg",
+            "videoUrl": "https://www.youtube.com/watch?v=zLBFQ_mFl2E",
+            "exerciseLength": "15:00"
+          },
           "firstTapOutTime": null,
           "tapOutNumber": 0,
           "notes": "It felt really good this time!"
@@ -23,13 +33,23 @@
       "day": 2,
       "exercises": [
         {
-          "type": "arm",
+          "exercise": {
+            "id": "arm1",
+            "type": "arm",
+            "videoUrl": "https://www.youtube.com/watch?v=UyTR2EjTAXU",
+            "exerciseLength": "7:00"
+          },
           "firstTapOutTime": 1.00,
           "tapOutNumber": 5,
           "notes": "Getting better?"
         },
         {
-          "type": "leg",
+          "exercise": {
+            "id": "leg1",
+            "type": "leg",
+            "videoUrl": "https://www.youtube.com/watch?v=zLBFQ_mFl2E",
+            "exerciseLength": "15:00"
+          },
           "firstTapOutTime": null,
           "tapOutNumber": 0,
           "notes": "Today was harder..."

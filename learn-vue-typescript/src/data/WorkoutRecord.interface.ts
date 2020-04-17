@@ -5,13 +5,20 @@ export interface WorkoutRecord {
 }
 
 export interface ExerciseRecord {
-  type: ExerciseType;
+  exercise: Exercise;
   firstTapOutTime: number;
   tapOutNumber: number;
   notes: string;
 }
 
-export enum ExerciseType {
+export interface Exercise {
+  id: string;
+  type: ExerciseArea;
+  videoUrl: string;
+  exerciseLength: string;
+}
+
+export enum ExerciseArea {
   ARM = 'arm',
   LEG = 'leg',
 }

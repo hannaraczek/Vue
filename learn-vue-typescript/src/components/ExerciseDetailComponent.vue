@@ -1,10 +1,10 @@
 <template>
-    <div>
-        <h2>{{ exercise.type }}</h2>
-        <h3>Tapouts: {{ exercise.tapOutNumber }}</h3>
-        <h3 v-if="exercise.tapOutNumber">First tapout: {{ exercise.firstTapOutTime }}</h3>
+    <div v-if="exerciseRecord">
+        <h2>{{ exerciseRecord.exercise.type }}</h2>
+        <h3>Tapouts: {{ exerciseRecord.tapOutNumber }}</h3>
+        <h3 v-if="exerciseRecord.tapOutNumber">First tapout: {{ exerciseRecord.firstTapOutTime }}</h3>
         <h3>Notes</h3>
-        <h4>{{ exercise.notes }}</h4>
+        <h4>{{ exerciseRecord.notes }}</h4>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ import { ExerciseRecord } from '@/data/WorkoutRecord.interface'
 
 export default Vue.extend({
   props: {
-    exercise: {
+    exerciseRecord: {
       type: Object as () => ExerciseRecord,
       default: null
     }

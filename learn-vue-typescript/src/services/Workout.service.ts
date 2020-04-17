@@ -3,7 +3,7 @@ import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
 import { workoutsURL } from '@/services/Constants'
 
 export class WorkoutService extends Api {
-  getEvents(): Promise<WorkoutRecord[]> {
+  getWorkouts(): Promise<WorkoutRecord[]> {
     return this.get<WorkoutRecord[]>(workoutsURL)
       .then(resp => resp.data)
   }

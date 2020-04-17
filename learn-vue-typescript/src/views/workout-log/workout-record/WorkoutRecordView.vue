@@ -1,7 +1,7 @@
 <template>
   <div v-if="workout">
     <h1>Viewing log entry for day {{ workout.day }}!</h1>
-    <ExerciseDetailComponent v-for="exercise in workout.exercises" :exercise="exercise"></ExerciseDetailComponent>
+    <ExerciseDetailComponent v-for="e in workout.exercises" :exerciseRecord="e"></ExerciseDetailComponent>
     <BaseIconComponent></BaseIconComponent>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import ExerciseLog from '../views/WorkoutLog.vue'
+import ExerciseLog from '../views/workout-log/WorkoutLog.vue'
 
 Vue.use(VueRouter)
 
@@ -16,13 +16,13 @@ const routes: Array<RouteConfig> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('../views/WorkoutView.vue'),
+    component: () => import('../views/workout-log/workout-record/WorkoutRecordView.vue'),
     props: true
   },
   {
     path: '/add',
     name: 'Create Log',
-    component: () => import('../views/WorkoutLogAdd.vue')
+    component: () => import('../views/workout-log/workout-record/WorkoutRecordAdd.vue')
   },
   {
     path: '*',
