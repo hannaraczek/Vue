@@ -22,7 +22,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters(['getExerciseById', 'selectedExercisesLength']),
+    ...mapGetters(['selectedExercisesLength']),
     ...mapState(['user', 'availableExercises'])
   },
   methods: {

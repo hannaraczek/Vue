@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { Exercise, ExerciseArea } from '@/data/WorkoutRecord.interface'
 import { User, UserSerivce } from '@/services/User.service'
+import { ExerciseService } from '@/services/Exercise.service'
 
 Vue.use(Vuex)
 
@@ -9,21 +10,7 @@ export default new Vuex.Store({
   state: {
     user: {} as User,
     selectedExerciseIds: [] as string[],
-    // TODO: fetch exercises from the database with an action
-    availableExercises: [
-      {
-        id: 'arm1',
-        type: ExerciseArea.ARM,
-        videoUrl: 'https://www.youtube.com/watch?v=UyTR2EjTAXU',
-        exerciseLength: '7:00'
-      },
-      {
-        id: 'leg1',
-        type: ExerciseArea.LEG,
-        videoUrl: 'https://www.youtube.com/watch?v=zLBFQ_mFl2E',
-        exerciseLength: '15:00'
-      }
-    ] as Exercise[]
+    availableExercises: [] as Exercise[]
   },
 
   // synchronus
@@ -33,6 +20,9 @@ export default new Vuex.Store({
     },
     UPDATE_USER(state, user: User) {
       state.user = user
+    },
+    UPDATE_AVAILABLE_EXERCISES(state, exercises: Exercise[]) {
+      state.availableExercises = exercises
     }
   },
 
@@ -46,11 +36,14 @@ export default new Vuex.Store({
     setUser({ commit }, id) {
       const userService = new UserSerivce()
       userService.getUser(id).then(user => commit('UPDATE_USER', user))
+    },
+    setAvailableExercises({ commit }) {
+      const exerciseService: ExerciseService = new ExerciseService()
+      exerciseService.getExercises().then(exercises => commit('UPDATE_AVAILABLE_EXERCISES', exercises))
     }
   },
   getters: {
     selectedExercisesLength: state => state.selectedExerciseIds.length,
-    getExerciseById: state => (id: string) => state.availableExercises.find(e => e.id === id),
     getWorkoutById: state => (id: string) => state.user.workouts.find(w => w.id === id)
   },
   modules: {}

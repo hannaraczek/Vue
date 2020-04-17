@@ -13,8 +13,9 @@ import { mapState } from 'vuex'
 export default Vue.extend({
   name: 'WorkoutLog',
   created(): void {
-    // TODO: refactor so that only the exercise ID is referenced in the workouts and place the individual exercises at a different "endpoint"
+    // TODO: refactor so that only the exercise ID is referenced in the workouts
     this.$store.dispatch('setUser', 1)
+    this.$store.dispatch('setAvailableExercises')
   },
   components: {
     WorkoutRecordComponent
