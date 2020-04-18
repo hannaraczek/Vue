@@ -4,7 +4,8 @@
       <router-link to="/">Exercise Log</router-link> |
       <router-link to="/add">Add Log</router-link>
     </div>
-    <router-view />
+    <!--  adding :key="$route.fullPath causes the page to reload every time the route changes, including query params  -->
+    <router-view :key="$route.fullPath"/>
   </div>
 </template>
 

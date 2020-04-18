@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hi {{user.name}}! How did you do today?
+    Hi {{user.user.name}}! How did you do today?
     Add the exercises you completed to create a workout log from the list below.
     You have selected {{selectedExercisesLength}} exercises.
     <ul>
@@ -11,7 +11,7 @@
 
 <script>
 import Vue from 'vue'
-import { mapState, mapGetters } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 // TODO create a workout record in a record create method and then call this.$store.dispatch('createWorkoutRecord', workoutRecord)
 export default Vue.extend({
@@ -30,9 +30,7 @@ export default Vue.extend({
     ...mapState(['user', 'availableExercises'])
   },
   methods: {
-    addExercise() {
-      this.$store.dispatch('addExercise')
-    }
+    ...mapActions(['addExercise'])
   }
 })
 </script>

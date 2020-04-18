@@ -23,7 +23,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      workout: this.$store.getters.getWorkoutById(this.id) as WorkoutRecord
+      // access namespaced getters like this. params can be added as well, like shown here.
+      workout: this.$store.getters['user/getWorkoutById'](this.id) as WorkoutRecord
     }
   }
 })

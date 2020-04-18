@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is the full log!</h1>
+    <h1>This is the full log for {{ user.name }}</h1> <!--  moduleName.stateInsideTheModule.prop  -->
     <WorkoutRecordComponent v-for="workout in user.workouts" :workout="workout"></WorkoutRecordComponent>
   </div>
 </template>
@@ -8,20 +8,28 @@
 <script lang="ts">
 import Vue from 'vue'
 import WorkoutRecordComponent from '@/components/WorkoutRecordComponent.vue'
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default Vue.extend({
   name: 'WorkoutLog',
   created(): void {
     // TODO: refactor so that only the exercise ID is referenced in the workouts
-    this.$store.dispatch('setUser', 1)
-    this.$store.dispatch('setAvailableExercises')
+    this.setUser(1)
+    this.setAvailableExercises()
   },
   components: {
     WorkoutRecordComponent
   },
   computed: {
-    ...mapState(['user'])
+    ...mapState({
+      user: state => state.user.user
+    })
+  },
+  methods: {
+    // user is the namespace, and setUser the method
+    // the exercises syntax could also be used --> ['user/setUser']
+    ...mapActions('user', ['setUser']),
+    ...mapActions(['setAvailableExercises'])
   }
 
 })
