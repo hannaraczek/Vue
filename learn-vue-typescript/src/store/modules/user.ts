@@ -17,13 +17,21 @@ export default {
     }
   },
   actions: {
-    setUser({ commit }, id) {
+    setUser({ commit, dispatch }, id) {
       // returning these calls then allows the disptcher to listen, too, to do things like display errors
-      return userService.getUser(id).then(resp => commit('UPDATE_USER', resp.data))
+      return userService.getUser(id)
+        .then(resp => commit('UPDATE_USER', resp.data))
+        .catch(error => dispatch('throwError', { message: 'error getting user', error }))
     },
-    createWorkoutRecord({ commit }, workout: WorkoutRecord) {
-      // TODO patch the workout, .then
-      commit('ADD_WORKOUT_RECORD', workout)
+    addUserWorkout({ state, commit, dispatch }, workout: WorkoutRecord) {
+      const updatedWorkouts = state.user.workouts.slice().push(workout)
+      return userService.updateWorkouts(state.user.id, updatedWorkouts)
+        .then(() => commit('ADD_WORKOUT_RECORD', workout))
+        .catch(error => dispatch('throwError', { message: 'error adding workout', error }))
+    },
+    throwError({ dispatch }, thing: { message: string, error: Error }) {
+      dispatch('notifications/create', { type: 'error', message: thing.message }, { root: true })
+      throw thing.error;
     }
   },
   getters: {

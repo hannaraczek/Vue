@@ -14,7 +14,7 @@ export default Vue.extend({
   name: 'WorkoutLog',
   created(): void {
     // TODO: refactor so that only the exercise ID is referenced in the workouts
-    this.setUser(1)
+    this.setUser(1).catch(error => console.log('error in view!', error))
     this.setAvailableExercises()
   },
   components: {

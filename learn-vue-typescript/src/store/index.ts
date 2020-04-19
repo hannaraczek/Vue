@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { Exercise, WorkoutRecord } from '@/data/WorkoutRecord.interface'
+import { Exercise } from '@/data/WorkoutRecord.interface'
 import { ExerciseService } from '@/services/Exercise.service'
 import user from '@/store/modules/user'
+import notifications from '@/store/modules/notifications'
 
 Vue.use(Vuex)
 
@@ -43,6 +44,7 @@ export default new Vuex.Store({
     selectedExercisesLength: state => state.selectedExerciseIds.length
   },
   modules: {
-    user
+    user,
+    notifications
   }
 })

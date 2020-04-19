@@ -19,4 +19,16 @@ export class Api {
   get<T, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig): Promise<R> {
     return this.api.get(url, config)
   }
+
+  post<T, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> {
+    return this.api.post(url, data, config)
+  }
+
+  put<T, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> {
+    return this.api.put(url, data, config)
+  }
+
+  patch<T, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> {
+    return this.api.patch(url, data, config)
+  }
 }

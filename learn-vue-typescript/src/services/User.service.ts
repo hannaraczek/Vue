@@ -8,7 +8,9 @@ export class UserSerivce extends Api {
     return this.get<User>(`${usersUrl}/${id}`)
   }
 
-  // TODO create a PATCH to patch a new workout
+  updateWorkouts(userId: number, workouts: WorkoutRecord[]): Promise<AxiosResponse> {
+    return this.patch(`${usersUrl}/${userId}`, { workouts })
+  }
 }
 
 export interface User {
