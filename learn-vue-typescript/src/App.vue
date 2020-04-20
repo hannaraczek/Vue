@@ -4,10 +4,23 @@
       <router-link to="/">Exercise Log</router-link> |
       <router-link to="/add">Add Log</router-link>
     </div>
+    <NotificationBars/>
     <!--  adding :key="$route.fullPath causes the page to reload every time the route changes, including query params  -->
     <router-view :key="$route.fullPath"/>
   </div>
 </template>
+
+<script lang="ts">
+  import Vue from 'vue'
+  import NotificationBars from '@/components/notifications/NotificationBars.component.vue'
+
+  export default Vue.extend({
+    components: {
+      NotificationBars
+    }
+  })
+
+</script>
 
 <style lang="scss">
 #app {

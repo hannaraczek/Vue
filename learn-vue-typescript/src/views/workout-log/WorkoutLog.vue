@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>This is the full log for {{ user.name }}</h1> <!--  moduleName.stateInsideTheModule.prop  -->
-    <WorkoutRecordComponent v-for="workout in user.workouts" :workout="workout"></WorkoutRecordComponent>
+    <WorkoutRecord v-for="workout in user.workouts" :workout="workout"></WorkoutRecord>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import WorkoutRecordComponent from '@/components/WorkoutRecordComponent.vue'
+import WorkoutRecord from '@/components/WorkoutRecord.component.vue'
 import { mapActions, mapState } from 'vuex'
 
 export default Vue.extend({
@@ -18,7 +18,7 @@ export default Vue.extend({
     this.setAvailableExercises()
   },
   components: {
-    WorkoutRecordComponent
+    WorkoutRecord
   },
   computed: {
     ...mapState({

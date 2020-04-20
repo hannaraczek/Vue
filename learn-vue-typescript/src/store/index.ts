@@ -27,7 +27,6 @@ export default new Vuex.Store({
     addExercise({ state, commit, dispatch }, exerciseId) {
       // since the state passed into a module's action is scoped to that module,
       // if you need to access a different module's state, you need to use rootState instead of state so it starts at the root
-      console.log(state.user.user.name)
       commit('PUSH_EXERCISE_ID', exerciseId)
 
       // we can call other module's actions, too. Since actions, mutations, and getters are globa,

@@ -1,4 +1,5 @@
 import { AxiosResponse } from 'axios'
+import { Notification } from '@/models/Notification.interface';
 
 let id = 1
 
@@ -13,7 +14,7 @@ export default {
       state.notifications.push(notification);
     },
     DELETE(state, id) {
-      state.notifications.filter((n: Notification) => n.id !== id)
+      state.notifications = state.notifications.filter((n: Notification) => n.id !== id)
     }
   },
   actions: {
@@ -32,18 +33,6 @@ export default {
         statusText: thing.response?.statusText
       };
       commit('PUSH', notification);
-
     }
-  },
-  getters: {
-
   }
-}
-
-export interface Notification {
-  id?: number,
-  type: string,
-  message: string,
-  status: number,
-  statusText: string
 }

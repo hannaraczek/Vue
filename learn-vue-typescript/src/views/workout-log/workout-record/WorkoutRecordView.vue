@@ -9,7 +9,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
-import ExerciseDetailComponent from '@/components/ExerciseDetailComponent.vue'
+import ExerciseDetailComponent from '@/components/ExerciseDetail.component.vue'
 
 export default Vue.extend({
   components: {
