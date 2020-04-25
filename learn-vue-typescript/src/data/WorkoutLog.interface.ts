@@ -1,3 +1,10 @@
+export interface WorkoutLog {
+  name: string;
+  id: string;
+  userId: string;
+  workouts: WorkoutRecord[];
+}
+
 export interface WorkoutRecord {
   id: string;
   day: number;

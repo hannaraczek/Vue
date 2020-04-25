@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>This is the full log for {{ user.name }}</h1> <!--  moduleName.stateInsideTheModule.prop  -->
-    <WorkoutRecord v-for="workout in user.workouts" :workout="workout"></WorkoutRecord>
+    <WorkoutRecord v-for="workout in workouts" :workout="workout"></WorkoutRecord>
   </div>
 </template>
 
@@ -14,7 +14,9 @@ export default Vue.extend({
   name: 'WorkoutLog',
   created(): void {
     // TODO: refactor so that only the exercise ID is referenced in the workouts
-    this.setUser(1).catch(error => console.log('error in view!', error))
+    this.setUser(1)
+      .then(() => this.setUserWorkouts())
+      .catch(error => console.log('error in view!', error))
     this.setAvailableExercises()
   },
   components: {
@@ -22,13 +24,15 @@ export default Vue.extend({
   },
   computed: {
     ...mapState({
-      user: state => state.user.user
+      user: state => state.user.user,
+      workouts: state => state.workouts.userWorkouts
     })
   },
   methods: {
     // user is the namespace, and setUser the method
     // the exercises syntax could also be used --> ['user/setUser']
     ...mapActions('user', ['setUser']),
+    ...mapActions('workouts', ['setUserWorkouts']),
     ...mapActions(['setAvailableExercises'])
   }
 

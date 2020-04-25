@@ -8,10 +8,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
 import ExerciseDetailComponent from '@/components/ExerciseDetail.component.vue'
+import { mapActions, mapState } from 'vuex'
 
 export default Vue.extend({
+  mounted(): void {
+    this.getWorkoutById(this.id)
+  },
   components: {
     ExerciseDetailComponent
   },
@@ -21,11 +24,11 @@ export default Vue.extend({
       default: ''
     }
   },
-  data() {
-    return {
-      // access namespaced getters like this. params can be added as well, like shown here.
-      workout: this.$store.getters['user/getWorkoutById'](this.id) as WorkoutRecord
-    }
+  methods: {
+    ...mapActions('workouts', ['getWorkoutById'])
+  },
+  computed: {
+    ...mapState('workouts', ['workout'])
   }
 })
 </script>

@@ -2,7 +2,18 @@
   "users": [
     {
       "id": 1,
-      "name": "Jane Doe",
+      "name": "Jane Doe"
+    },
+    {
+      "id": 2,
+      "name": "John Buck"
+    }
+  ],
+  "workoutLogs": [
+    {
+      "name": "Log 1 for user 1",
+      "id": 1,
+      "userId": 1,
       "workouts": [
         {
           "id": "hfjewnaknvfea",
@@ -63,8 +74,7 @@
       ]
     },
     {
-      "id": 2,
-      "name": "John Buck",
+      "userId": 2,
       "workouts": [
         {
           "id": "hfjewnaknvfea",

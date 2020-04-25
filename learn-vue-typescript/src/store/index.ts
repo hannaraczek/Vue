@@ -4,6 +4,7 @@ import { Exercise } from '@/data/WorkoutRecord.interface'
 import { ExerciseService } from '@/services/Exercise.service'
 import user from '@/store/modules/user'
 import notifications from '@/store/modules/notifications'
+import workouts from '@/store/modules/workouts'
 
 Vue.use(Vuex)
 
@@ -44,6 +45,7 @@ export default new Vuex.Store({
   },
   modules: {
     user,
-    notifications
+    notifications,
+    workouts
   }
 })
