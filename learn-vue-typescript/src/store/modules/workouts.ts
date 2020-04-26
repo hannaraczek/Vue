@@ -25,7 +25,7 @@ export default {
       const updatedWorkouts = state.userWorkouts.slice().push(workout)
       workoutService.updateWorkouts(rootState.user.user.id, updatedWorkouts)
         .then(() => commit('ADD_WORKOUT_RECORD', workout))
-        .catch(error => dispatch('throwError', { message: 'error adding workout', error }))
+        .catch(error => dispatch('notifications/create', { type: 'error', message: 'error adding workout', error }, { root: true }))
     },
     setUserWorkouts({ rootState, commit }) {
       return workoutService.getWorkoutLogs(rootState.user.user.id)
@@ -48,7 +48,7 @@ export default {
             commit('ADD_WORKOUT_RECORD', workout)
             return workout
           })
-          .catch(error => dispatch('user/throwError', { message: 'error getting workout', error }, { root: true }))
+          .catch(() => dispatch('notifications/create', { type: 'error', message: 'error getting workout' }, { root: true }))
       return promise.then(workout => commit('SET_WORKOUT', workout))
     }
   }

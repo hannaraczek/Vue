@@ -1,5 +1,4 @@
 import { UserSerivce } from '@/services/User.service'
-import { AxiosResponse } from 'axios'
 import { User } from '@/models/User.interface'
 
 const userService = new UserSerivce()
@@ -15,23 +14,14 @@ export default {
     }
   },
   actions: {
-    setUser({ commit, dispatch }, id) {
+    setUser({ commit, dispatch }, id: string) {
       // returning these calls then allows the disptcher to listen, too, to do things like display errors
       return userService.getUser(id)
         .then(resp => {
-          dispatch('notifySuccess', { message: 'sucess yeah!', response: resp })
+          dispatch('notifications/create', { type: 'success', message: 'success woo!' }, { root: true })
           commit('UPDATE_USER', resp.data)
         })
-        .catch(error => dispatch('throwError', { message: 'error getting user', error }))
-    },
-
-    // TODO: put these in a shared space to be used by all API calls
-    throwError({ dispatch }, thing: { message: string; error: Error }) {
-      dispatch('notifications/create', { type: 'error', message: thing.message }, { root: true })
-      throw thing.error
-    },
-    notifySuccess({ dispatch }, thing: { message: string; response: AxiosResponse }) {
-      dispatch('notifications/create', { type: 'success', message: thing.message }, { root: true })
+        .catch(error => dispatch('notifications/create', { type: 'error', message: 'error getting user', error }, { root: true }))
     }
   }
 }
