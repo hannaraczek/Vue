@@ -12,6 +12,8 @@ import ExerciseDetailComponent from '@/components/ExerciseDetail.component.vue'
 import { mapActions, mapState } from 'vuex'
 
 export default Vue.extend({
+  // TODO: Redirect if user doesn't exist or workout doesn't exist.
+  // Ideally there would be some centralized location to contain the logic to redirect of certain things in the route don't exist.
   mounted(): void {
     this.getWorkoutById({ userId: this.user, workoutId: this.id })
   },
