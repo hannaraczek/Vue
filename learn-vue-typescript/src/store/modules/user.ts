@@ -19,7 +19,6 @@ export default {
       // returning these calls then allows the disptcher to listen, too, to do things like display errors
       return userService.getUser(id)
         .then(resp => {
-          console.log(resp)
           dispatch('notifySuccess', { message: 'sucess yeah!', response: resp })
           commit('UPDATE_USER', resp.data)
         })
@@ -28,7 +27,6 @@ export default {
 
     // TODO: put these in a shared space to be used by all API calls
     throwError({ dispatch }, thing: { message: string; error: Error }) {
-      console.log(thing.error)
       dispatch('notifications/create', { type: 'error', message: thing.message }, { root: true })
       throw thing.error
     },

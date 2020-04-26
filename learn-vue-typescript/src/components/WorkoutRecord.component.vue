@@ -1,6 +1,6 @@
 <template>
     <div>
-      <router-link :to="{ name: 'View Log', params: { id: workout.id }}">
+      <router-link :to="{ name: 'View Log', params: { id: workout.id, user: user.id }}">
         <h1>Day {{ workout.day }}</h1>
       </router-link>
       <h2>Arms: {{ getDescription('arm') }}</h2>
@@ -10,7 +10,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { WorkoutRecord } from '@/data/WorkoutRecord.interface'
+import { WorkoutRecord } from '@/data/WorkoutLog.interface'
+import { mapState } from 'vuex'
 
 export default Vue.extend({
   name: 'WorkoutRecord',
@@ -20,14 +21,15 @@ export default Vue.extend({
       default: null
     }
   },
-
+  computed: {
+    ...mapState('user', ['user'])
+  },
   methods: {
     getDescription(type: string) {
       const exerciseRecord = this.workout.exercises.find(e => e.exercise.type === type)
       if (!exerciseRecord) {
-        return
+        return ''
       }
-
       return exerciseRecord.tapOutNumber ? `${exerciseRecord.tapOutNumber} tapouts. First one was at ${exerciseRecord.firstTapOutTime}. No biggie!` : 'No tapouts! Excellent work!'
     }
   }

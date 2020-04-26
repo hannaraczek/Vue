@@ -4,7 +4,7 @@ import { AxiosResponse } from 'axios'
 import { WorkoutLog, WorkoutRecord } from '@/data/WorkoutLog.interface'
 
 export class WorkoutService extends Api {
-  getWorkoutLogs(userId: number): Promise<AxiosResponse<WorkoutLog[]>> {
+  getWorkoutLogs(userId: string): Promise<AxiosResponse<WorkoutLog[]>> {
     return this.get(`${usersUrl}/${userId}/workoutLogs`)
   }
 

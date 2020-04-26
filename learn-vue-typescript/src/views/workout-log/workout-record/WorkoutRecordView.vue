@@ -13,7 +13,7 @@ import { mapActions, mapState } from 'vuex'
 
 export default Vue.extend({
   mounted(): void {
-    this.getWorkoutById(this.id)
+    this.getWorkoutById({ userId: this.user, workoutId: this.id })
   },
   components: {
     ExerciseDetailComponent
@@ -22,7 +22,8 @@ export default Vue.extend({
     id: {
       type: String,
       default: ''
-    }
+    },
+    user: String
   },
   methods: {
     ...mapActions('workouts', ['getWorkoutById'])

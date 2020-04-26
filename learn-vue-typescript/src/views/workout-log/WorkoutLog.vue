@@ -14,6 +14,7 @@ export default Vue.extend({
   name: 'WorkoutLog',
   created(): void {
     // TODO: refactor so that only the exercise ID is referenced in the workouts
+    // TODO: create a vue where the user must be defined
     this.setUser(1)
       .then(() => this.setUserWorkouts())
       .catch(error => console.log('error in view!', error))

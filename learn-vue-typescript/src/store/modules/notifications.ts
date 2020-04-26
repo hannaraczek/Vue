@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import { Notification } from '@/models/Notification.interface';
+import { Notification } from '@/models/Notification.interface'
 
 let id = 1
 
@@ -11,7 +11,7 @@ export default {
   },
   mutations: {
     PUSH(state, notification) {
-      state.notifications.push(notification);
+      state.notifications.push(notification)
     },
     DELETE(state, id) {
       state.notifications = state.notifications.filter((n: Notification) => n.id !== id)
@@ -24,6 +24,8 @@ export default {
     remove({ commit }, id) {
       commit('DELETE', id)
     },
+
+    // TODO: replace thing with meaningful name everywhere
     create({ commit, dispatch }, thing: { type: string; message: string; response: AxiosResponse }) {
       const notification: Notification = {
         id: id++,
@@ -31,8 +33,8 @@ export default {
         message: thing.message,
         status: thing.response?.status,
         statusText: thing.response?.statusText
-      };
-      commit('PUSH', notification);
+      }
+      commit('PUSH', notification)
     }
   }
 }
